@@ -7,7 +7,7 @@ export class OllamaAi implements AiEngine {
     messages: Array<ChatCompletionRequestMessage>
   ): Promise<string | undefined> {
 
-    const model = 'mistral:7b'; // todo: pull from env
+    const model = 'zephyr:7b-beta'; // todo: pull from env to allow other models
 
     let prompt = messages.map((x) => x.content).join('\n');
 	//hoftix: local models are not so clever...
@@ -16,7 +16,7 @@ export class OllamaAi implements AiEngine {
 	//console.log('prompt length ', prompt.length)
 	//console.log('prompt ', prompt)
 
-    const url = 'http://192.168.1.101:11434/api/generate'; // todo: pull this from env
+    const url = 'http://192.168.1.101:11434/api/generate'; // todo: pull this from env?
     const p = {
       model,
       prompt,
