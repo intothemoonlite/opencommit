@@ -16425,7 +16425,7 @@ var package_default = {
   scripts: {
     watch: "npm run -S build -- --sourcemap --watch",
     start: "node ./out/cli.cjs",
-    "ollama:start": "AI_PROVIDER='ollama' node./out/cli.cjs",
+    "ollama:start": "OCO_AI_PROVIDER='ollama' node ./out/cli.cjs",
     dev: "ts-node ./src/cli.ts",
     build: "rimraf out && node esbuild.config.js",
     "build:push": "npm run build && git add . && git commit -m 'build' && git push",
@@ -21965,10 +21965,10 @@ var api = new OpenAi();
 // src/engine/ollama.ts
 var OllamaAi = class {
   async generateCommitMessage(messages) {
-    const model = "mistral";
+    const model = "mistral:7b";
     let prompt = messages.map((x4) => x4.content).join("\n");
     prompt += "Summarize above git diff in 10 words or less";
-    const url3 = "http://localhost:11434/api/generate";
+    const url3 = "http://192.168.1.101:11434/api/generate";
     const p4 = {
       model,
       prompt,

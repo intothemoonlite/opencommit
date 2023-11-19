@@ -27460,10 +27460,10 @@ var api = new OpenAi();
 // src/engine/ollama.ts
 var OllamaAi = class {
   async generateCommitMessage(messages) {
-    const model = "mistral";
+    const model = "mistral:7b";
     let prompt = messages.map((x2) => x2.content).join("\n");
     prompt += "Summarize above git diff in 10 words or less";
-    const url2 = "http://localhost:11434/api/generate";
+    const url2 = "http://192.168.1.101:11434/api/generate";
     const p2 = {
       model,
       prompt,
